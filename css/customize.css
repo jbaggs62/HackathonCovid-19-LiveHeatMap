@@ -1,0 +1,19 @@
+iframe {
+	width: 100%;
+	height: 725px;
+	border: none;
+}
+
+#tabsStatesHolder {
+	height: 200px;
+	width: 150px;
+	border: 1px solid gray;
+}
+
+.pure-menu-link, .pure-menu-link.inactive:hover {
+	background-color: #EEE;
+	cursor: pointer;
+}
+.pure-menu-link.inactive {
+	background-color: #FFF;
+}
