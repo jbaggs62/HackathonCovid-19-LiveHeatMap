@@ -21,6 +21,7 @@
 	<!--<![endif]-->
 	<link rel="stylesheet" href="css/customize.css">
 	
+	<script src="https://unpkg.com/amazon-quicksight-embedding-sdk@1.0.6/dist/quicksight-embedding-js-sdk.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/app.js"></script>
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -49,25 +50,17 @@
 	<!-- COUNTRY DATA -->
 	<div id="usDataC" class="content pure-u-1 pure-u-md-3-4">
 		<div>
-			<!-- A wrapper for all the blog posts -->
-			<div class="data">
-				<h1 class="content-subhead">US DATA</h1>
-
-				<!-- A single blog post -->
-				<section class="post">
-					<iframe src="https://us-east-1.quicksight.aws.amazon.com/embed/1bfff2a7017c4cd98c47547bec92cf70/dashboards/c84456f6-0fda-4163-9f75-cc6dc81a9bd4?isauthcode=true&identityprovider=quicksight&code=AYABeLVRYrLahHrX9Pw2sztL27wAAAABAAdhd3Mta21zAEthcm46YXdzOmttczp1cy1lYXN0LTE6MjU5NDgwNDYyMTMyOmtleS81NGYwMjdiYy03MDJhLTQxY2YtYmViNS0xNDViOTExNzFkYzMAuAECAQB4P-lAb3AsrVHPwO-wVCEmuFDTp0yz4wFfkrwutzPupewB37z3v8AsZwRmR-oVfoTarAAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHJu7RxJlTvQO7yoBQIBEIA7A7jlBSluX0BI6ISoXmtBwnCO8pxi8XvXKCVZHnfoygAOk7NG9PDgJpAUyig3Gu0JnxYmKCey9NhdGGACAAAAAAwAABAAAAAAAAAAAAAAAAAAK0KqQzI3FCOfG6MXjD0mHP____8AAAABAAAAAAAAAAAAAAABAAAAmy9QxhHxZP2s9PAWOfUTCnPwFCjU_mkAT6nPMw5BcAqtzxRjxkRpwZZxGCJxFAj6efy8ITLHZ8fFNBFsfudsuKjvEaEjuI_8PvUgXGw5niBMGbBctdPlC0uEAH457ZEMmLmCF4v37jj9weeconpgbbNGbaycWZFdKm3ierLNlRuGdnFPE33J9YwFAnS4oRQq8FllMZ1aszw9YVOBae5GyA2RuEpdhFg4G6pcyQ%3D%3D"></iframe>
-				</section>
-			</div>
-
-			<div class="footer">
-				<div class="pure-menu pure-menu-horizontal">
-					<ul>
-						<li class="pure-menu-item"><a href="http://purecss.io/" class="pure-menu-link">About</a></li>
-						<li class="pure-menu-item"><a href="http://twitter.com/yuilibrary/" class="pure-menu-link">Twitter</a></li>
-						<li class="pure-menu-item"><a href="http://github.com/pure-css/pure/" class="pure-menu-link">GitHub</a></li>
-					</ul>
+			<div class="post pure-g">
+				<h2 class="post-title pure-u-1 pure-u-md-1-2">
+					Current Status:<br/>
+					United States of America
+				</h2>
+				<div class="post-description pure-u-1 pure-u-md-1-2">
+					<a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/CDCgov"></a>
 				</div>
 			</div>
+			
+			<section id="usDashboard" class="post"></section>
 		</div>
 	</div>
 	<!-- /COUNTRY DATA -->

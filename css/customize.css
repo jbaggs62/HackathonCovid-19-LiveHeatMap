@@ -1,9 +1,3 @@
-iframe {
-	width: 100%;
-	height: 725px;
-	border: none;
-}
-
 #tabsStatesHolder {
 	height: 200px;
 	width: 150px;
@@ -16,4 +10,10 @@ iframe {
 }
 .pure-menu-link.inactive {
 	background-color: #FFF;
+}
+
+
+
+.twitter-timeline {
+	
 }
