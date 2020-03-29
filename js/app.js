@@ -49,7 +49,7 @@ $(function() {
 			dashboard = QuickSightEmbedding.embedDashboard(options);
 		}
 	}
-	$.each(states, function(data) {
+	$.each(states, function(key, data) {
 		var abbreviation = data.id.substr(0, 2);
 		var name = data.text;
 		var twitter = data.dataset.twitter;
