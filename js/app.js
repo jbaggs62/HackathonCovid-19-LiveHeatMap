@@ -51,7 +51,7 @@ $(function() {
 		dashboard = QuickSightEmbedding.embedDashboard(options);
 	});
 	
-	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod", function(data) {
+	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod?id=state", function(data) {
 		var options = {
 				url: data.url,
 				container: document.getElementById("alDashboard"),
