@@ -4,10 +4,12 @@
 }
 
 .pure-menu-link, .pure-menu-link.inactive:hover {
-	background-color: #EEE;
+    color: #FFF;
+	background-color: #3d4f5d;
 	cursor: pointer;
 }
 .pure-menu-link.inactive {
+	color: #777;
 	background-color: #FFF;
 }
 
