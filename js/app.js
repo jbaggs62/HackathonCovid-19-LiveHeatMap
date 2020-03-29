@@ -36,14 +36,23 @@ $(function() {
 	
 	
 	
-	
-	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod", function(data) {
+	// UNITED STATES SUMMARY
+	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
 		var options = {
 				url: data.url,
-				container: document.getElementById("usDashboard"),
-				parameters: {
-					country: 'United States'
-				},
+				container: document.getElementById("usDashboardSummary"),
+				parameters: { },
+				scrolling: "no",
+				height: "AutoFit",
+				width: "100%"
+		};
+		dashboard = QuickSightEmbedding.embedDashboard(options);
+	});
+	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/details", function(data) {
+		var options = {
+				url: data.url,
+				container: document.getElementById("usDashboardDetail"),
+				parameters: { },
 				scrolling: "no",
 				height: "AutoFit",
 				width: "100%"
@@ -51,12 +60,26 @@ $(function() {
 		dashboard = QuickSightEmbedding.embedDashboard(options);
 	});
 	
-	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod?id=state", function(data) {
+	// ALABAMA
+	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
 		var options = {
 				url: data.url,
-				container: document.getElementById("alDashboard"),
+				container: document.getElementById("alDashboardSummary"),
 				parameters: {
-					country: 'United States'
+					state: 'AL'
+				},
+				scrolling: "no",
+				height: "AutoFit",
+				width: "100%"
+		};
+		dashboard = QuickSightEmbedding.embedDashboard(options);
+	});
+	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/details", function(data) {
+		var options = {
+				url: data.url,
+				container: document.getElementById("alDashboardDetail"),
+				parameters: {
+					state: 'AL'
 				},
 				scrolling: "no",
 				height: "AutoFit",
