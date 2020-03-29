@@ -1,11 +1,42 @@
 $(function() {
+	// LOAD UNITED STATES DATA
+	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
+		var options = {
+				url: data.url,
+				container: document.getElementById("usDashboardDetail"),
+				parameters: { },
+				scrolling: "no",
+				height: "AutoFit",
+				width: "100%"
+		};
+		dashboard = QuickSightEmbedding.embedDashboard(options);
+	});
+	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/details", function(data) {
+		var options = {
+				url: data.url,
+				container: document.getElementById("usDashboardSummary"),
+				parameters: { },
+				scrolling: "no",
+				height: "AutoFit",
+				width: "100%"
+		};
+		dashboard = QuickSightEmbedding.embedDashboard(options);
+	});
+	
+	
+	
+	
+	
+	// INITIALIZE COUNTRY / STATE LINKS
 	$('#tabsMainMenu > li:not(:first) > a').addClass('inactive');
 	$('.dataHolder').addClass('hidden');
 	$('.dataHolder:first').removeClass('hidden');
 	    
 	$('#tabsMainMenu > li > a').click(function(){
 		var t = $(this).attr('id');
-		if($(this).hasClass('inactive')){ //this is the start of our condition 
+		
+		// What to do if a non-active link is clicked
+		if($(this).hasClass('inactive')){
 			$('#tabsMainMenu > li > a').addClass('inactive');           
 			$(this).removeClass('inactive');
 	    
@@ -18,37 +49,8 @@ $(function() {
 	
 	
 	
+	// LOAD STATE VIEW AND DATA
 	var states = $("#tabsStates > li > a");
-	function createSummaryStateView(abbreviation) {
-		return function(data) {
-			var options = {
-					url: data.url,
-					container: document.getElementById(abbreviation + "DashboardSummary"),
-					parameters: {
-						state: abbreviation.toUpperCase()
-					},
-					scrolling: "no",
-					height: "AutoFit",
-					width: "100%"
-			};
-			dashboard = QuickSightEmbedding.embedDashboard(options);
-		}
-	}
-	function createDetailedStateView(abbreviation) {
-		return function(data) {
-			var options = {
-					url: data.url,
-					container: document.getElementById(abbreviation + "DashboardDetail"),
-					parameters: {
-						state: abbreviation.toUpperCase()
-					},
-					scrolling: "no",
-					height: "AutoFit",
-					width: "100%"
-			};
-			dashboard = QuickSightEmbedding.embedDashboard(options);
-		}
-	}
 	$.each(states, function(key, data) {
 		var abbreviation = data.id.substr(0, 2);
 		var name = data.text;
@@ -83,55 +85,60 @@ $(function() {
 		</div>`;
 		
 		$("#stateDataC")[0].innerHTML += stateLayout;
-		
-		$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", createSummaryStateView(abbreviation));
-		$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/county", createDetailedStateView(abbreviation));
 	});
 	
 	
 	
 	
 	
+	// INITIALIZE STATE PAGE LINKS
+	function createSummaryStateView(abbreviation) {
+		return function(data) {
+			var options = {
+					url: data.url,
+					container: document.getElementById(abbreviation + "DashboardSummary"),
+					parameters: {
+						state: abbreviation.toUpperCase()
+					},
+					scrolling: "no",
+					height: "AutoFit",
+					width: "100%"
+			};
+			dashboard = QuickSightEmbedding.embedDashboard(options);
+		}
+	}
+	function createDetailedStateView(abbreviation) {
+		return function(data) {
+			var options = {
+					url: data.url,
+					container: document.getElementById(abbreviation + "DashboardDetail"),
+					parameters: {
+						state: abbreviation.toUpperCase()
+					},
+					scrolling: "no",
+					height: "AutoFit",
+					width: "100%"
+			};
+			dashboard = QuickSightEmbedding.embedDashboard(options);
+		}
+	}
 	$('#tabsStates > li:not(:first) > a').addClass('inactive');
 	$('#stateDataC .data').addClass('hidden');
 	$('#stateDataC .data:first').removeClass('hidden');
-	    
 	$('#tabsStates > li > a').click(function(){
 		var t = $(this).attr('id');
-		if($(this).hasClass('inactive')){ //this is the start of our condition 
+		
+		// What to do if a non-active link is clicked
+		if($(this).hasClass('inactive')){
 			$('#tabsStates > li > a').addClass('inactive');           
 			$(this).removeClass('inactive');
 	    
 			$('#stateDataC .data').addClass('hidden');
 			$('#'+ t + 'C').hide().removeClass('hidden').fadeIn('slow');
+			
+			var abbreviation = this.id.substr(0, 2);
+			$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", createSummaryStateView(abbreviation));
+			$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/county", createDetailedStateView(abbreviation));
 		}
-	});
-	
-	
-	
-	
-	
-	// UNITED STATES SUMMARY
-	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
-		var options = {
-				url: data.url,
-				container: document.getElementById("usDashboardDetail"),
-				parameters: { },
-				scrolling: "no",
-				height: "AutoFit",
-				width: "100%"
-		};
-		dashboard = QuickSightEmbedding.embedDashboard(options);
-	});
-	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/details", function(data) {
-		var options = {
-				url: data.url,
-				container: document.getElementById("usDashboardSummary"),
-				parameters: { },
-				scrolling: "no",
-				height: "AutoFit",
-				width: "100%"
-		};
-		dashboard = QuickSightEmbedding.embedDashboard(options);
 	});
 });
