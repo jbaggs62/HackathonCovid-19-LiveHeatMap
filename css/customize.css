@@ -14,6 +14,19 @@
 
 
 
-.twitter-timeline {
+div.post {
+	display: flex;
+	align-items: center;
+	min-height: 500px;
+}
+div.post .post-title {
 	
+}
+div.post .post-description {
+	text-align: center;
+	flex: 1;
+}
+.twitter-timeline {
+	min-width: 300px !important;
+	max-width: 50% !important;
 }
