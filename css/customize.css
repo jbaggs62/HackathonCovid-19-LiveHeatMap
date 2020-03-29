@@ -37,6 +37,20 @@ a.pure-menu-link.inactive {
     background-color: transparent;
 }
 
+.splash-head {
+	font-size: 3.5em;
+	font-weight: bold;
+	text-align: left;
+	padding: 0;
+	border: 0;
+}
+.splash-head span {
+	font-size: 0.3em;
+	font-weight: bold;
+	line-height: 1;
+	display: block;
+}
+
 /* Mobile styles */
 .home-menu {
 	display: flex;
@@ -63,9 +77,19 @@ a.pure-menu-link.inactive {
 	
 	.splash {
 		display: flex;
+		position: absolute;
 		width: 90%;
+		height: auto;
 		align-items: center;
 		margin-top: 5em;
+		margin-bottom: 5em;
+	}
+	#usDataC .splash {
+		top: 62px;
+	}
+	#stateDataC .splash {
+		margin-top: 4em;
+		top: 127px;
 	}
 	.splash > div:nth-child(1) {
 		flex: 1 1 70%;
@@ -76,8 +100,5 @@ a.pure-menu-link.inactive {
 	.splash > div:nth-child(2) {
 		flex: 1 1 30%;
 		margin-left: 80px;
-	}
-	#stateDataC .splash {
-		margin-top: 9em;
 	}
 }
