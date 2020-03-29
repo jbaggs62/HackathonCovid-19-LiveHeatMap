@@ -4,7 +4,7 @@ $(function() {
 		var options = {
 				url: data.url,
 				container: document.getElementById("usDashboardSummary"),
-				parameters: { },
+				parameters: {},
 				scrolling: "no",
 				height: "AutoFit",
 				width: "100%"
@@ -15,7 +15,7 @@ $(function() {
 		var options = {
 				url: data.url,
 				container: document.getElementById("usDashboardDetail"),
-				parameters: { },
+				parameters: {},
 				scrolling: "no",
 				height: "AutoFit",
 				width: "100%"
@@ -31,7 +31,6 @@ $(function() {
 	$('#tabsMainMenu > li:not(:first) > a').addClass('inactive');
 	$('.dataHolder').addClass('hidden');
 	$('.dataHolder:first').removeClass('hidden');
-	    
 	$('#tabsMainMenu > li > a').click(function(){
 		var t = $(this).attr('id');
 		
@@ -42,6 +41,10 @@ $(function() {
 	    
 			$('.dataHolder').addClass('hidden');
 			$('#'+ t + 'C').hide().removeClass('hidden').fadeIn('slow');
+			
+			if($($(this).parent()).hasClass("pure-menu-has-children") && $(this).parent().find(".pure-menu-children > .pure-menu-list > li > a:not(.inactive)").length == 0) {
+				$(this).parent().find(".pure-menu-children > .pure-menu-list > li:first-child > a").trigger("click");
+			}
 		}
 	});
 	
@@ -122,9 +125,8 @@ $(function() {
 			dashboard = QuickSightEmbedding.embedDashboard(options);
 		}
 	}
-	$('#tabsStates > li:not(:first) > a').addClass('inactive');
+	$('#tabsStates > li > a').addClass('inactive');
 	$('#stateDataC .data').addClass('hidden');
-	$('#stateDataC .data:first').removeClass('hidden');
 	$('#tabsStates > li > a').click(function(){
 		var t = $(this).attr('id');
 		
