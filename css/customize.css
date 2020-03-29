@@ -1,40 +1,80 @@
-#tabsStatesHolder {
-	width: calc(100% + 2em);
-	margin: -2em -1em 2em;
-}
-
-.pure-menu-link, .pure-menu-link.inactive:hover {
-    color: #FFF;
-	background-color: #3D4F5D !important;
+/* Combined styles */
+a.pure-menu-link {
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: underline;
 	cursor: pointer;
 }
-.pure-menu-link.inactive {
-	color: #777;
-	background-color: #FFF !important;
+a.pure-menu-link.inactive {
+	color: #6FBEF3;
+	font-weight: normal;
+	text-decoration: none;
 }
 
-
-.twitter-timeline {
-	max-width: 100% !important;
+.pure-menu-item.pure-menu-has-children .pure-menu-item {
+	display: inline-block;
+}
+.pure-menu-horizontal .pure-menu-has-children > .pure-menu-link:after {
+	content: "";
+}
+.pure-menu-item.pure-menu-has-children a.pure-menu-link + .pure-menu-children {
+	display: block;
+	position: fixed;
+	left: 0;
+	width: 100vw;
+}
+.pure-menu-item.pure-menu-has-children a.pure-menu-link.inactive + .pure-menu-children {
+	display: none;
 }
 
+#tabsStates .pure-menu-link, #tabsStates  .pure-menu-link.inactive:hover {
+    color: #FFF;
+    background-color: #3D4F5D;
+    cursor: pointer;
+}
+#tabsStates .pure-menu-link.inactive {
+    color: #777;
+    background-color: transparent;
+}
+
+/* Mobile styles */
+.home-menu {
+	display: flex;
+	flex-direction: column;
+}
+
+.splash {
+	margin-top: 0;
+}
+
+/* Desktp Styles */
 @media screen and (min-width:48em) {
-	#tabsStatesHolder {
-		width: calc(100% + 6em);
-		margin: -2em -3em 2em;
+	.home-menu {
+		display: block;
 	}
 	
-	div.post {
+	.pure-menu-horizontal.pure-menu-scrollable .pure-menu-list {
 		display: flex;
+		width: 100%;
+	}
+	#tabsStates > li:last-child > a {
+		margin-right: 11px;
+	}
+	
+	.splash {
+		display: flex;
+		width: 90%;
 		align-items: center;
-		min-height: 500px;
+		margin-top: 5em;
 	}
-	div.post .post-description {
-		text-align: center;
-		flex: 1;
+	.splash > div:nth-child(1) {
+		flex: 1 1 70%;
 	}
-	.twitter-timeline {
-		min-width: 300px !important;
-		max-width: 50% !important;
+	.splash-head {
+		margin: 0;
+	}
+	.splash > div:nth-child(2) {
+		flex: 1 1 30%;
+		margin-left: 80px;
 	}
 }
