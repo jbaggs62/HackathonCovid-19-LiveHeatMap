@@ -40,7 +40,7 @@ $(function() {
 	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
 		var options = {
 				url: data.url,
-				container: document.getElementById("usDashboardSummary"),
+				container: document.getElementById("usDashboardDetail"),
 				parameters: { },
 				scrolling: "no",
 				height: "AutoFit",
@@ -51,7 +51,7 @@ $(function() {
 	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/details", function(data) {
 		var options = {
 				url: data.url,
-				container: document.getElementById("usDashboardDetail"),
+				container: document.getElementById("usDashboardSummary"),
 				parameters: { },
 				scrolling: "no",
 				height: "AutoFit",
@@ -64,7 +64,7 @@ $(function() {
 	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
 		var options = {
 				url: data.url,
-				container: document.getElementById("alDashboardSummary"),
+				container: document.getElementById("alDashboardDetail"),
 				parameters: {
 					state: 'AL'
 				},
@@ -77,7 +77,7 @@ $(function() {
 	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/details", function(data) {
 		var options = {
 				url: data.url,
-				container: document.getElementById("alDashboardDetail"),
+				container: document.getElementById("alDashboardSummary"),
 				parameters: {
 					state: 'AL'
 				},
