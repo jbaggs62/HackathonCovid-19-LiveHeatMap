@@ -51,6 +51,17 @@ a.pure-menu-link.inactive {
 	display: block;
 }
 
+section[id*="DashboardSummary"], section[id*="DashboardDetail"] {
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+section[id*="DashboardSummary"] {
+	background-image: url('../img/loading.gif');
+}
+section[id*="DashboardDetail"] {
+	background-image: url('../img/loading_dark.gif');
+}
+
 /* Mobile styles */
 .home-menu {
 	display: flex;
