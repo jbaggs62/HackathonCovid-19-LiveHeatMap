@@ -57,9 +57,11 @@ section[id*="DashboardSummary"], section[id*="DashboardDetail"] {
 }
 section[id*="DashboardSummary"] {
 	background-image: url('../img/loading.gif');
+	min-height: 150px;
 }
 section[id*="DashboardDetail"] {
 	background-image: url('../img/loading_dark.gif');
+	min-height: 150px;
 }
 
 /* Mobile styles */
@@ -134,6 +136,6 @@ section[id*="DashboardDetail"] {
 	}
 	
 	section[id*="DashboardSummary"] iframe {
-		height: 315px;
+		max-height: 315px;
 	}
 }

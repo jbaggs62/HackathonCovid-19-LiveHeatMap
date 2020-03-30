@@ -1,16 +1,35 @@
 $(function() {
 	// LOAD UNITED STATES DATA
-	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
-		var options = {
-				url: data.url,
-				container: document.getElementById("usDashboardSummary"),
-				parameters: {},
-				scrolling: "no",
-				height: "AutoFit",
-				width: "100%"
-		};
-		dashboard = QuickSightEmbedding.embedDashboard(options);
+	$.ajax({
+		url: "https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary",
+		dataType: "jsonp",
+		success: function(data) {
+			var options = {
+					url: data.url,
+					container: document.getElementById("usDashboardSummary"),
+					parameters: {},
+					scrolling: "no",
+					height: "AutoFit",
+					width: "100%"
+			};
+			dashboard = QuickSightEmbedding.embedDashboard(options);
+		},
+		error: function(e) {
+			console.log("error");
+		}
 	});
+	
+//	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
+//		var options = {
+//				url: data.url,
+//				container: document.getElementById("usDashboardSummary"),
+//				parameters: {},
+//				scrolling: "no",
+//				height: "AutoFit",
+//				width: "100%"
+//		};
+//		dashboard = QuickSightEmbedding.embedDashboard(options);
+//	});
 	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/details", function(data) {
 		var options = {
 				url: data.url,
@@ -36,9 +55,9 @@ $(function() {
 		
 		// What to do if a non-active link is clicked
 		if($(this).hasClass('inactive')){
-			$('#tabsMainMenu > li > a').addClass('inactive');           
+			$('#tabsMainMenu > li > a').addClass('inactive');
 			$(this).removeClass('inactive');
-	    
+		
 			$('.dataHolder').addClass('hidden');
 			$('#'+ t + 'C').hide().removeClass('hidden').fadeIn('slow');
 			
@@ -62,28 +81,28 @@ $(function() {
 		var stateLayout = `<!-- ${name} -->
 		<div id="${abbreviation}DataC" class="data hidden">
 			<div class="splash-container">
-			    <div class="splash">
-			    	<div>
-				        <h1 class="splash-head">
+				<div class="splash">
+					<div>
+						<h1 class="splash-head">
 							<span>Current Status:</span>
 							${name}
 						</h1>
 						
 						<section id="${abbreviation}DashboardSummary" class="post"></section>
-			    	</div>
+					</div>
 					
 					<div>
-				        <a class="twitter-timeline" data-height="500" href="https://twitter.com/${twitter}"></a>
+						<a class="twitter-timeline" data-height="500" href="https://twitter.com/${twitter}"></a>
 					</div>
-			    </div>
+				</div>
 			</div>
 			
 			<div class="content-wrapper">
-			    <div class="content">
-			        <h2 class="content-head is-center">${name}</h2>
-			        
-			        <section id="${abbreviation}DashboardDetail" class="post"></section>
-			    </div>
+				<div class="content">
+					<h2 class="content-head is-center">${name}</h2>
+					
+					<section id="${abbreviation}DashboardDetail" class="post"></section>
+				</div>
 			</div>
 		</div>`;
 		
@@ -132,9 +151,9 @@ $(function() {
 		
 		// What to do if a non-active link is clicked
 		if($(this).hasClass('inactive')){
-			$('#tabsStates > li > a').addClass('inactive');           
+			$('#tabsStates > li > a').addClass('inactive');
 			$(this).removeClass('inactive');
-	    
+		
 			$('#stateDataC .data').addClass('hidden');
 			$('#'+ t + 'C').hide().removeClass('hidden').fadeIn('slow');
 			
