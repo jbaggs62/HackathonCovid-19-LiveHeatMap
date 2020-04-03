@@ -1,18 +1,48 @@
 /* Combined styles */
+.home-menu {
+	padding: 0 8px;
+	box-shadow: none;
+}
 a.pure-menu-link {
 	color: #FFF;
 	font-weight: bold;
-	text-decoration: underline;
+	padding: 0 16px;
 	cursor: pointer;
 }
-a.pure-menu-link.inactive {
+.home-menu li a:hover, .home-menu li a:focus, .home-menu .pure-menu-selected a {
+	color: #FFF;
+}
+.home-menu li a#stateData {
+	color: #1F8DD6;
+	background-color: #FFF;
+}
+.home-menu li a.inactive, .home-menu li a#usData.inactive, .home-menu li a#stateData.inactive {
 	color: #6FBEF3;
 	font-weight: normal;
-	text-decoration: none;
+	background-color: #2D3E50;
+}
+.home-menu li a#usData:hover, .home-menu li a#usData {
+	color: #FFF;
+	background-color: #1F8DD6;
+}
+.home-menu li a#stateData:hover, .home-menu li a#stateData {
+	color: #1F8DD6;
+	background-color: #FFF;
 }
 
+.pure-menu-item {
+	margin: 0 1px;
+}
 .pure-menu-item.pure-menu-has-children .pure-menu-item {
 	display: inline-block;
+}
+.pure-menu-item.pure-menu-has-children .pure-menu-item:first-child {
+	padding-left: 10px;
+	margin-left: 0;
+}
+.pure-menu-item.pure-menu-has-children .pure-menu-item:last-child {
+	padding-right: 10px;
+	margin-right: 0;
 }
 .pure-menu-horizontal .pure-menu-has-children > .pure-menu-link:after {
 	content: "";
@@ -21,7 +51,8 @@ a.pure-menu-link.inactive {
 	display: block;
 	position: fixed;
 	left: 0;
-	width: 100vw;
+	width: 100%;
+	padding-bottom: 0;
 }
 .pure-menu-item.pure-menu-has-children a.pure-menu-link.inactive + .pure-menu-children {
 	display: none;
@@ -29,7 +60,7 @@ a.pure-menu-link.inactive {
 
 #tabsStates .pure-menu-link, #tabsStates  .pure-menu-link.inactive:hover {
     color: #FFF;
-    background-color: #3D4F5D;
+    background-color: #1F8DD6;
     cursor: pointer;
 }
 #tabsStates .pure-menu-link.inactive {
@@ -64,6 +95,10 @@ section[id*="DashboardDetail"] {
 	min-height: 150px;
 }
 
+.content .post {
+	min-height: 300px;
+}
+
 /* Mobile styles */
 .home-menu {
 	display: flex;
@@ -90,15 +125,22 @@ section[id*="DashboardDetail"] {
 /* Desktop Styles */
 @media screen and (min-width:48em) {
 	.home-menu {
+		line-height: 60px;
 		display: block;
+	}
+	
+	.pure-menu.pure-menu-fixed {
+		line-height: 60px;
+		padding: 0 8px;
+		box-shadow: none;
+	}
+	.home-menu .pure-menu-heading {
+		padding: 0 28px;
 	}
 	
 	.pure-menu-horizontal.pure-menu-scrollable .pure-menu-list {
 		display: flex;
 		width: 100%;
-	}
-	#tabsStates > li:last-child > a {
-		margin-right: 11px;
 	}
 	
 	.splash-container {
@@ -129,6 +171,10 @@ section[id*="DashboardDetail"] {
 	.splash > div:nth-child(2) {
 		flex: 1 1 30%;
 		margin-left: 80px;
+	}
+	
+	.splash .post {
+		height: 350px;
 	}
 	
 	.content-wrapper {

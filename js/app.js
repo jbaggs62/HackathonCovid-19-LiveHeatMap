@@ -1,31 +1,14 @@
 $(function() {
 	// LOAD UNITED STATES DATA
-	$.ajax({
-		url: "https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary",
-		dataType: "jsonp",
-		success: function(data) {
-			var options = {
-					url: data.url,
-					container: document.getElementById("usDashboardSummaryTest"),
-					parameters: {},
-					scrolling: "no",
-					height: "AutoFit",
-					width: "100%"
-			};
-			dashboard = QuickSightEmbedding.embedDashboard(options);
-		},
-		error: function (xhr, ajaxOptions, thrownError) {
-			console.log("error");
-		}
-	});
-	
 	$.getJSON("https://xn57ih8ghl.execute-api.us-east-1.amazonaws.com/prod/summary", function(data) {
 		var options = {
 				url: data.url,
 				container: document.getElementById("usDashboardSummary"),
 				parameters: {},
 				scrolling: "no",
-				height: "AutoFit",
+				//height: "AutoFit",
+				height: "100%",
+				loadingHeight: "350px",
 				width: "100%"
 		};
 		dashboard = QuickSightEmbedding.embedDashboard(options);
@@ -37,6 +20,7 @@ $(function() {
 				parameters: {},
 				scrolling: "no",
 				height: "AutoFit",
+				loadingHeight: "300px",
 				width: "100%"
 		};
 		dashboard = QuickSightEmbedding.embedDashboard(options);
@@ -99,8 +83,7 @@ $(function() {
 			
 			<div class="content-wrapper">
 				<div class="content">
-					<h2 class="content-head is-center">${name}</h2>
-					
+					<h2 class="content-head is-center">A Deeper Look</h2>
 					<section id="${abbreviation}DashboardDetail" class="post"></section>
 				</div>
 			</div>
@@ -139,6 +122,7 @@ $(function() {
 					},
 					scrolling: "no",
 					height: "AutoFit",
+					loadingHeight: "300px",
 					width: "100%"
 			};
 			dashboard = QuickSightEmbedding.embedDashboard(options);
