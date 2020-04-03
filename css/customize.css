@@ -1,6 +1,5 @@
 /* Combined styles */
 .home-menu {
-	padding: 0 8px;
 	box-shadow: none;
 }
 a.pure-menu-link {
@@ -33,16 +32,14 @@ a.pure-menu-link {
 .pure-menu-item {
 	margin: 0 1px;
 }
-.pure-menu-item.pure-menu-has-children .pure-menu-item {
-	display: inline-block;
-}
-.pure-menu-item.pure-menu-has-children .pure-menu-item:first-child {
-	padding-left: 10px;
+.pure-menu-item:first-child {
 	margin-left: 0;
 }
-.pure-menu-item.pure-menu-has-children .pure-menu-item:last-child {
-	padding-right: 10px;
+.pure-menu-item:last-child {
 	margin-right: 0;
+}
+.pure-menu-item.pure-menu-has-children .pure-menu-item {
+	display: inline-block;
 }
 .pure-menu-horizontal .pure-menu-has-children > .pure-menu-link:after {
 	content: "";
@@ -101,8 +98,23 @@ section[id*="DashboardDetail"] {
 
 /* Mobile styles */
 .home-menu {
+	padding: 0;
 	display: flex;
 	flex-direction: column;
+}
+
+.home-menu .pure-menu-heading {
+	padding: 1.25em;
+}
+#tabsMainMenu {
+	display: flex;
+	text-align: center;
+}
+#tabsMainMenu > li {
+	flex: 1;
+}
+.pure-menu.pure-menu-fixed {
+	line-height: 2em;
 }
 
 .splash-container {
@@ -125,6 +137,7 @@ section[id*="DashboardDetail"] {
 /* Desktop Styles */
 @media screen and (min-width:48em) {
 	.home-menu {
+		padding: 0 8px;
 		line-height: 60px;
 		display: block;
 	}
@@ -136,6 +149,10 @@ section[id*="DashboardDetail"] {
 	}
 	.home-menu .pure-menu-heading {
 		padding: 0 28px;
+	}
+	
+	#tabsMainMenu {
+		display: inline-block;
 	}
 	
 	.pure-menu-horizontal.pure-menu-scrollable .pure-menu-list {
